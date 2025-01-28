@@ -1,13 +1,11 @@
-import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from 'lucide-react';
+import PropTypes from 'prop-types';
 
 const NewsCard = ({ icon, title, date, summary, category }) => (
   <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 group">
     <div className="flex items-start space-x-4">
       <div className="flex-shrink-0">
-        <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">
-          {icon}
-        </div>
+        <div className="p-2 bg-blue-500/10 rounded-lg text-blue-400">{icon}</div>
       </div>
       <div className="flex-1">
         <div className="flex items-center justify-between mb-2">
@@ -28,5 +26,12 @@ const NewsCard = ({ icon, title, date, summary, category }) => (
     </div>
   </div>
 );
+NewsCard.propTypes = {
+  icon: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  summary: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+};
 
 export default NewsCard;

@@ -1,5 +1,4 @@
-import React from "react";
-import BlogPost from "../BlogPost";
+import BlogPost from '../BlogPost';
 
 const Blog = () => (
   <section id="blog" className="py-16 bg-gray-800">

@@ -1,6 +1,5 @@
-import React from "react";
-import { FaShieldAlt } from "react-icons/fa";
-import { BiAtom } from "react-icons/bi";
+import { FaShieldAlt } from 'react-icons/fa';
+import { BiAtom } from 'react-icons/bi';
 
 const Header = () => (
   <header className="relative bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 text-white py-12 overflow-hidden">
@@ -20,11 +19,9 @@ const Header = () => (
       </h1>
       <p className="text-lg text-center text-blue-300 max-w-2xl mx-auto mb-4 leading-relaxed">
         <span className="font-semibold text-cyan-400">Unveiling</span> Digital
-        Threats •{" "}
-        <span className="font-semibold text-purple-400">Analyzing</span> Attack
-        Patterns •{" "}
-        <span className="font-semibold text-blue-400">Strengthening</span>{" "}
-        Defense
+        Threats • <span className="font-semibold text-purple-400">Analyzing</span>{' '}
+        Attack Patterns •{' '}
+        <span className="font-semibold text-blue-400">Strengthening</span> Defense
       </p>
 
       {/* Decorative Elements */}

@@ -1,33 +1,34 @@
-import React, { useState, useEffect } from "react";
-import { ThumbsUp, ThumbsDown, Share2, Calendar } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { ThumbsUp, ThumbsDown, Share2, Calendar } from 'lucide-react';
+import PropTypes from 'prop-types';
 
 const BlogPost = ({ title, date, content, id }) => {
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [userVote, setUserVote] = useState(null);
-  const [userIP, setUserIP] = useState("");
+  const [userIP, setUserIP] = useState('');
 
   // Format the date nicely
   const formatDate = (dateString) => {
     const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
     };
-    return new Date(dateString).toLocaleDateString("en-US", options);
+    return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
   // Fetch user's IP on component mount
   useEffect(() => {
     const fetchIP = async () => {
       try {
-        const response = await fetch("https://api.ipify.org?format=json");
+        const response = await fetch('https://api.ipify.org?format=json');
         const data = await response.json();
         setUserIP(data.ip);
       } catch (error) {
-        console.error("Error fetching IP:", error);
+        console.error('Error fetching IP:', error);
       }
     };
 
@@ -44,7 +45,7 @@ const BlogPost = ({ title, date, content, id }) => {
     }
 
     // Check if user has already voted
-    const userVotes = JSON.parse(localStorage.getItem("user-votes") || "{}");
+    const userVotes = JSON.parse(localStorage.getItem('user-votes') || '{}');
     if (userIP && userVotes[userIP] && userVotes[userIP][id]) {
       setUserVote(userVotes[userIP][id]);
     }
@@ -60,12 +61,12 @@ const BlogPost = ({ title, date, content, id }) => {
     );
 
     if (userIP) {
-      const userVotes = JSON.parse(localStorage.getItem("user-votes") || "{}");
+      const userVotes = JSON.parse(localStorage.getItem('user-votes') || '{}');
       if (!userVotes[userIP]) {
         userVotes[userIP] = {};
       }
       userVotes[userIP][id] = voteType;
-      localStorage.setItem("user-votes", JSON.stringify(userVotes));
+      localStorage.setItem('user-votes', JSON.stringify(userVotes));
     }
   };
 
@@ -73,31 +74,31 @@ const BlogPost = ({ title, date, content, id }) => {
     if (!userIP) return;
 
     if (userVote === voteType) {
-      if (voteType === "like") {
+      if (voteType === 'like') {
         setLikes((prev) => prev - 1);
       } else {
         setDislikes((prev) => prev - 1);
       }
       setUserVote(null);
       saveToLocalStorage(
-        voteType === "like" ? likes - 1 : likes,
-        voteType === "dislike" ? dislikes - 1 : dislikes,
+        voteType === 'like' ? likes - 1 : likes,
+        voteType === 'dislike' ? dislikes - 1 : dislikes,
         null
       );
     } else if (!userVote) {
-      if (voteType === "like") {
+      if (voteType === 'like') {
         setLikes((prev) => prev + 1);
       } else {
         setDislikes((prev) => prev + 1);
       }
       setUserVote(voteType);
       saveToLocalStorage(
-        voteType === "like" ? likes + 1 : likes,
-        voteType === "dislike" ? dislikes + 1 : dislikes,
+        voteType === 'like' ? likes + 1 : likes,
+        voteType === 'dislike' ? dislikes + 1 : dislikes,
         voteType
       );
     } else {
-      if (voteType === "like") {
+      if (voteType === 'like') {
         setLikes((prev) => prev + 1);
         setDislikes((prev) => prev - 1);
       } else {
@@ -106,8 +107,8 @@ const BlogPost = ({ title, date, content, id }) => {
       }
       setUserVote(voteType);
       saveToLocalStorage(
-        voteType === "like" ? likes + 1 : likes - 1,
-        voteType === "dislike" ? dislikes + 1 : dislikes - 1,
+        voteType === 'like' ? likes + 1 : likes - 1,
+        voteType === 'dislike' ? dislikes + 1 : dislikes - 1,
         voteType
       );
     }
@@ -125,10 +126,10 @@ const BlogPost = ({ title, date, content, id }) => {
         await navigator.share(shareData);
       } else {
         await navigator.clipboard.writeText(window.location.href);
-        alert("Link copied to clipboard!");
+        alert('Link copied to clipboard!');
       }
     } catch (err) {
-      console.error("Error sharing:", err);
+      console.error('Error sharing:', err);
     }
   };
 
@@ -157,22 +158,22 @@ const BlogPost = ({ title, date, content, id }) => {
         <div className="flex items-center justify-between pt-6 border-t border-gray-700/50">
           <div className="flex items-center space-x-6">
             <button
-              onClick={() => handleVote("like")}
+              onClick={() => handleVote('like')}
               className={`flex items-center space-x-2 px-3 py-1 rounded-lg transition-all duration-300 ${
-                userVote === "like"
-                  ? "text-blue-400 bg-blue-500/10"
-                  : "text-gray-400 hover:text-blue-400 hover:bg-blue-500/10"
+                userVote === 'like'
+                  ? 'text-blue-400 bg-blue-500/10'
+                  : 'text-gray-400 hover:text-blue-400 hover:bg-blue-500/10'
               }`}
             >
               <ThumbsUp className="w-5 h-5" />
               <span>{likes}</span>
             </button>
             <button
-              onClick={() => handleVote("dislike")}
+              onClick={() => handleVote('dislike')}
               className={`flex items-center space-x-2 px-3 py-1 rounded-lg transition-all duration-300 ${
-                userVote === "dislike"
-                  ? "text-red-400 bg-red-500/10"
-                  : "text-gray-400 hover:text-red-400 hover:bg-red-500/10"
+                userVote === 'dislike'
+                  ? 'text-red-400 bg-red-500/10'
+                  : 'text-gray-400 hover:text-red-400 hover:bg-red-500/10'
               }`}
             >
               <ThumbsDown className="w-5 h-5" />
@@ -191,6 +192,12 @@ const BlogPost = ({ title, date, content, id }) => {
       </div>
     </article>
   );
+};
+BlogPost.propTypes = {
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default BlogPost;

@@ -1,5 +1,5 @@
-import React from "react";
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import PropTypes from 'prop-types';
 
 const Footer = () => (
   <footer className="bg-gray-900 border-t border-gray-800">
@@ -19,14 +19,8 @@ const Footer = () => (
         <div className="flex space-x-6 mb-8">
           <SocialLink href="https://github.com" icon={<Github size={20} />} />
           <SocialLink href="https://twitter.com" icon={<Twitter size={20} />} />
-          <SocialLink
-            href="https://linkedin.com"
-            icon={<Linkedin size={20} />}
-          />
-          <SocialLink
-            href="mailto:contact@example.com"
-            icon={<Mail size={20} />}
-          />
+          <SocialLink href="https://linkedin.com" icon={<Linkedin size={20} />} />
+          <SocialLink href="mailto:contact@example.com" icon={<Mail size={20} />} />
         </div>
 
         {/* Navigation Links */}
@@ -56,6 +50,10 @@ const SocialLink = ({ href, icon }) => (
     {icon}
   </a>
 );
+SocialLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired,
+};
 
 const FooterLink = ({ href, text }) => (
   <a
@@ -65,5 +63,9 @@ const FooterLink = ({ href, text }) => (
     {text}
   </a>
 );
+FooterLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
 
 export default Footer;

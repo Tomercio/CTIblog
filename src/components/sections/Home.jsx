@@ -1,5 +1,4 @@
-import React from "react";
-import { Shield, Terminal, AlertTriangle } from "lucide-react";
+import { Shield, Terminal, AlertTriangle } from 'lucide-react';
 
 const Home = () => (
   <section
@@ -20,24 +19,24 @@ const Home = () => (
           {/* Content */}
           <div className="space-y-6 text-gray-300">
             <p className="leading-relaxed text-lg">
-              Hello, I'm Tomer, a passionate Cyber Threat Intelligence
+              Hello, I&apos;m Tomer, a passionate Cyber Threat Intelligence
               Enthusiast dedicated to understanding and analyzing the evolving
               landscape of digital threats.
             </p>
 
             <div className="border-l-4 border-blue-500 pl-6 my-8">
               <p className="text-xl text-blue-400 font-medium">
-                "In the realm of cybersecurity, knowledge isn't just power –
-                it's protection."
+                &quot;In the realm of cybersecurity, knowledge isn&apos;t just power
+                – it&apos;s protection.&quot;
               </p>
             </div>
 
             <p className="leading-relaxed text-lg">
-              This blog serves as a platform where I share insights, analysis,
-              and knowledge about the latest cyber threats, attack patterns, and
-              defense strategies. My goal is to contribute to the cybersecurity
-              community by providing actionable intelligence and fostering
-              discussions about emerging threats.
+              This blog serves as a platform where I share insights, analysis, and
+              knowledge about the latest cyber threats, attack patterns, and defense
+              strategies. My goal is to contribute to the cybersecurity community by
+              providing actionable intelligence and fostering discussions about
+              emerging threats.
             </p>
 
             {/* Feature Boxes */}

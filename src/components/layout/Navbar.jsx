@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Shield, Globe, BookOpen, Mail, Menu, X } from "lucide-react";
+import { useState } from 'react';
+import { Shield, Globe, BookOpen, Mail, Menu, X } from 'lucide-react';
+import PropTypes from 'prop-types';
 
 const NavLink = ({ icon, text, onClick }) => (
   <a
@@ -11,15 +12,20 @@ const NavLink = ({ icon, text, onClick }) => (
     <span className="font-medium">{text}</span>
   </a>
 );
+NavLink.propTypes = {
+  icon: PropTypes.element.isRequired,
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { icon: <Shield className="w-5 h-5" />, text: "Home" },
-    { icon: <Globe className="w-5 h-5" />, text: "News" },
-    { icon: <BookOpen className="w-5 h-5" />, text: "Blog" },
-    { icon: <Mail className="w-5 h-5" />, text: "Contact" },
+    { icon: <Shield className="w-5 h-5" />, text: 'Home' },
+    { icon: <Globe className="w-5 h-5" />, text: 'News' },
+    { icon: <BookOpen className="w-5 h-5" />, text: 'Blog' },
+    { icon: <Mail className="w-5 h-5" />, text: 'Contact' },
   ];
 
   return (

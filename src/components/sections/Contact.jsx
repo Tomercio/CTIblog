@@ -1,5 +1,5 @@
-import React from "react";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
+import PropTypes from 'prop-types';
 
 const Contact = () => (
   <section
@@ -15,7 +15,7 @@ const Contact = () => (
           Get in Touch
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Have questions about cyber threats or want to collaborate? Let's
+          Have questions about cyber threats or want to collaborate? Let&apos;s
           connect!
         </p>
       </div>
@@ -93,7 +93,7 @@ const Contact = () => (
               {/* Social Proof */}
               <div className="p-6 bg-gray-900/50 rounded-xl border border-gray-700/50">
                 <p className="text-gray-400 text-sm leading-relaxed">
-                  "Let's Keep in Touch."
+                  &quot;Let&apos;s Keep in Touch.&quot;
                 </p>
               </div>
             </div>
@@ -115,5 +115,10 @@ const ContactInfo = ({ icon, title, content }) => (
     </div>
   </div>
 );
+ContactInfo.propTypes = {
+  icon: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
 
 export default Contact;
