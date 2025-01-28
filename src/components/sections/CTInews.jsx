@@ -1,6 +1,5 @@
-import React from "react";
-import NewsCard from "../NewsCard";
-import { Shield, AlertTriangle, Zap } from "lucide-react";
+import NewsCard from '../NewsCard';
+import { Shield, AlertTriangle, Zap } from 'lucide-react';
 
 const CTINews = () => (
   <section
@@ -16,8 +15,8 @@ const CTINews = () => (
           Latest CTI News
         </h2>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Stay informed about the latest developments in cyber threats and
-          security landscape
+          Stay informed about the latest developments in cyber threats and security
+          landscape
         </p>
       </div>
 
